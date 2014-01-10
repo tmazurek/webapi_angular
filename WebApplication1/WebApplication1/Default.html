@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>title</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet" />
+</head>
+<body ng-app="airlineApp">
+    <div class="container" ng-controller="flightsController">
+        <h1>flight chooser</h1>
+        <div class="row">
+            <div class="col-md-5 well flightCard" ng-repeat="flight in flights">
+                <ul>
+                    <li>airline:  {{flight.airline}}</li>
+                    <li>flightNumber: {{flight.flightNumber}}</li>
+                    <li>startTime: {{flight.startTime}}</li>
+                    <li>endTime:  {{flight.endTime}}</li>
+                    <li>totalDuration {{flight.totalDuration}}</li>
+                    <li>price: {{flight.price}}</li>
+                    <li>date: {{flight.date}}</li>
+                    <li>cities:<span ng-repeat="city in flight.cities"> {{city}},</span></li>
+
+
+                </ul>
+                <div class="pull-right">
+                    <button ng-class="{btn:true, 'btn-success':flight.approved}" ng-click="selectedFlight(flight)"><i class="glyphicon glyphicon-ok"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="airlinesApp/airlineApp.js"></script>
+    <script src="airlinesApp/controllers/flightsController.js"></script>
+</body>
+</html>
