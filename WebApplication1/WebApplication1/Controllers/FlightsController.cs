@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using WebApplication1.Model;
 
 namespace WebApplication1.Controllers
 {
@@ -11,9 +12,16 @@ namespace WebApplication1.Controllers
     {
         //
         // GET: /Flights/
-        public int Get()
+        public IHttpActionResult GetAllFlights()
         {
-            return 42;
+            var model = new List<Flight>
+            {
+                new Flight(){ID=1, Airline="from mdel", Approved=false, Cities= new[]{"ny","org"}, Date=new DateTime(2013,01,12), EndTime=(DateTime.Now.AddHours(3)), FlightNumber="122", Prize=654.30, StartTime= DateTime.Now, TotlaDuration=2},
+                new Flight(){ID=1, Airline="from mdel", Approved=false, Cities= new[]{"ny","org"}, Date=new DateTime(2013,01,12), EndTime=DateTime.Now.AddHours(3), FlightNumber="122", Prize=654.30, StartTime= DateTime.Now, TotlaDuration=2}
+            
+            };
+            return Ok(model) ;
+            
         }
     }
 }

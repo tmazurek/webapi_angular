@@ -3,8 +3,11 @@
 
     var flightsController = function ($scope, flightService, $timeout) {
 
+        var onError = function () { alert("error") };
+        var onFlights = function (flights) { $scope.flights = flights.data; };
+
         var init = function () {
-            $scope.flights = flightService.getFlights();
+            $scope.flights = flightService.getFlights().then(onFlights, onError);
         };
 
 
