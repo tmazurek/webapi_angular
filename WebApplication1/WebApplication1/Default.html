@@ -21,8 +21,8 @@
                     <li>flightNumber: {{flight.flightNumber}}</li>
                     <li>startTime: {{flight.startTime | date:'shortTime'}}</li>
                     <li>endTime:  {{flight.endTime | date:'shortTime'}}</li>
-                    <li>totalDuration {{flight.totalDuration}}</li>
-                    <li>price: {{flight.price}}</li>
+                    <li>totalDuration: {{flight.totalDuration}}</li>
+                    <li>price: {{flight.price | currency}}</li>
                     <li>date: {{flight.date | date}}</li>
                     <li>cities:<span ng-repeat="city in flight.cities"> {{city}},</span></li>
 
